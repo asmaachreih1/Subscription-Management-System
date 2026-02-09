@@ -1,13 +1,11 @@
-import express from 'express';
-import cors from 'cors';
+import express from "express";
+import userRoutes from "./routes/user.routes";
 
 const app = express();
 
-app.use(cors());
 app.use(express.json());
+app.use("/api/users", userRoutes);
 
-app.get('/', (_req, res) => {
-  res.send('Subscription Management API Running 🚀');
-});
+// ... other middlewares like errorHandler, notFound
 
 export default app;
